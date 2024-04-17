@@ -1,5 +1,5 @@
-#ifndef __BOIDS__H__
-#define __BOIDS__H__
+#ifndef __BOID__H__
+#define __BOID__H__
 
 #include <vector>
 
