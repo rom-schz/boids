@@ -12,6 +12,8 @@ public:
 
 	void updateVel(float vx, float vy);
 
+	void render(int screenWidth, int screenHeight);
+
 	float getX();
 	float getY();
 

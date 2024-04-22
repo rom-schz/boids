@@ -12,14 +12,20 @@ public:
     void update();
     void addBoid(Boid boid);
 
+    void render(int screenWidth, int screenHeight);
+
+    void setCenteringFactor(float factor);
+    void setAvoidFactor(float factor);
+    void setMatchingFactor(float factor);
+
 private:
     std::vector<Boid> boids;
     float shortRange=10;
-    float longRange=;
+    float longRange=50;
 
-    float centeringFactor;
-    float avoidFactor;
-    float matchingFactor;
+    float centeringFactor=0.0005;
+    float avoidFactor=0.05;
+    float matchingFactor=0.05;
 
 };
 

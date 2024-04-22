@@ -1,5 +1,6 @@
 #include "flock.hpp"
 #include "boid.hpp"
+#include "raylib.h"
 
 Flock::Flock() {
     boids = std::vector<Boid>();
@@ -62,3 +63,29 @@ void Flock::update() {
 void Flock::addBoid(Boid boid) {
     boids.push_back(boid);
 }
+
+void Flock::render(int screenWidth, int screenHeight) {
+    for (auto& boid : boids) {
+        boid.render(screenWidth, screenHeight);
+    }
+}
+
+void Flock::setCenteringFactor(float factor) {
+    if (factor > 0) {
+        centeringFactor = factor;
+    }
+}
+
+void Flock::setAvoidFactor(float factor) {
+    if (factor > 0) {
+        avoidFactor = factor;
+    }
+}
+
+void Flock::setMatchingFactor(float factor) {
+    if (factor > 0) {
+        matchingFactor = factor;
+    }
+}
+
+

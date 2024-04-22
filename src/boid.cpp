@@ -1,4 +1,5 @@
 #include "boid.hpp"
+#include "raylib.h"
 
 #include <math.h>
 
@@ -32,6 +33,10 @@ void Boid::update() {
 void Boid::updateVel(float vx, float vy) {
 	nextVX = vx;
 	nextVY = vy;
+}
+
+void Boid::render(int screenWidth, int screenHeight) {
+	DrawCircle(x + screenWidth/2, y + screenHeight/2, 5, RED);
 }
 
 float Boid::getX() {
