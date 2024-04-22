@@ -10,9 +10,26 @@ public:
 
 	void update();
 
+	void updateCohesion(float x_avg, float y_avg);
+	void updateAlignment(float vx_avg, float vy_avg);
+	void updateSeparation(float close_dx, float close_dy);
+
+	float getX();
+	float getY();
+
+	float getVX();
+	float getVY();
+
+	float getMaxSpeed();
+	float getMinSpeed();
+
+	float dist(Boid boid);
+
+
 private:
 	float x; float y;
 	float vx; float vy;
+	float nextVX; float nextVY;
 
 	float maxSpeed;
 	float minSpeed;
@@ -21,9 +38,6 @@ private:
 	float centeringFactor;
 	float matchingFactor;
 
-	void separation();
-	void alignment();
-	void cohesion();
 };
 
 #endif
