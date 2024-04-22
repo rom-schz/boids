@@ -1,2 +1,2 @@
-add_library(boids boid.cpp)
+add_library(boids boid.cpp flock.cpp)
 

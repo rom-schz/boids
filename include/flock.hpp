@@ -14,8 +14,12 @@ public:
 
 private:
     std::vector<Boid> boids;
-    float shortRange;
-    float longRange;
+    float shortRange=10;
+    float longRange=;
+
+    float centeringFactor;
+    float avoidFactor;
+    float matchingFactor;
 
 };
 

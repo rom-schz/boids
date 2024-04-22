@@ -29,19 +29,9 @@ void Boid::update() {
 	y += vy;
 }
 
-void Boid::updateCohesion(float x_avg, float y_avg) {
-	vx += (x_avg - x) * centeringFactor;
-	vy += (y_avg - y) * centeringFactor;
-}
-
-void Boid::updateAlignment(float vx_avg, float vy_avg) {
-	vx += (vx_avg - vx) * matchingFactor;
-	vy += (vy_avg - vy) * matchingFactor;
-}
-
-void Boid::updateSeparation(float close_dx, float close_dy) {
-	vx += close_dx * avoidFactor;
-	vy += close_dy * avoidFactor;
+void Boid::updateVel(float vx, float vy) {
+	nextVX = vx;
+	nextVY = vy;
 }
 
 float Boid::getX() {

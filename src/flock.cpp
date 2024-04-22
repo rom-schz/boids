@@ -9,6 +9,7 @@ void Flock::update() {
 
     for (auto& boid : boids) {
 
+        float vx=0; float vy=0;
         float vx_avg=0; float vy_avg=0;
         float x_avg=0; float y_avg=0;
         float close_dx=0; float close_dy=0;
@@ -46,9 +47,15 @@ void Flock::update() {
             vy_avg /= neighbors;
         }
 
-        boid.updateAlignment(vx_avg, vy_avg);
-        boid.updateCohesion(x_avg, x_avg);
-        boid.updateSeparation(close_dx, close_dy);
+        vx += (x_avg - boid.getX()) * centeringFactor;
+        vx += (vx_avg - boid.getVX()) * matchingFactor;
+        vx += close_dx * avoidFactor;
+
+        vy += (y_avg - boid.getY()) * centeringFactor;
+        vy += (vy_avg - boid.getVY()) * matchingFactor;
+        vy += close_dy * avoidFactor;
+
+        boid.updateVel(vx, vy);
     }
 }
 

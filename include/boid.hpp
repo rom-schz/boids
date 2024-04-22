@@ -10,9 +10,7 @@ public:
 
 	void update();
 
-	void updateCohesion(float x_avg, float y_avg);
-	void updateAlignment(float vx_avg, float vy_avg);
-	void updateSeparation(float close_dx, float close_dy);
+	void updateVel(float vx, float vy);
 
 	float getX();
 	float getY();
