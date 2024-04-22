@@ -9,7 +9,8 @@ class Flock {
 public:
     Flock();
 
-    void update();
+    void update(int screenWidth, int screenHeight);
+    void updateVel();
     void addBoid(Boid boid);
 
     void render(int screenWidth, int screenHeight);

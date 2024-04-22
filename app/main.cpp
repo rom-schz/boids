@@ -15,8 +15,8 @@ int main(int argc, char** argv){
 
 	Flock flock = Flock();
 
-	Boid boid1 = Boid(0, 0, 1, 1);
-	Boid boid2 = Boid(1, 1, 1, -1);
+	Boid boid1 = Boid(0, 0, 10, 10);
+	Boid boid2 = Boid(100, 100, 10, -10);
 
 	flock.addBoid(boid1);
 	flock.addBoid(boid2);
@@ -26,8 +26,9 @@ int main(int argc, char** argv){
 
 		ClearBackground(RAYWHITE);
 
-		flock.update();
 		flock.render(screenWidth, screenHeight);
+		flock.updateVel();
+		flock.update(screenWidth, screenHeight);
 
 		EndDrawing();
 	}

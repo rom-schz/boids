@@ -2,11 +2,12 @@
 #include "boid.hpp"
 #include "raylib.h"
 
+
 Flock::Flock() {
     boids = std::vector<Boid>();
 }
 
-void Flock::update() {
+void Flock::updateVel() {
 
     for (auto& boid : boids) {
 
@@ -57,6 +58,12 @@ void Flock::update() {
         vy += close_dy * avoidFactor;
 
         boid.updateVel(vx, vy);
+    }
+}
+
+void Flock::update(int screenWidth, int screenHeight) {
+    for (auto& boid : boids) {
+        boid.update(screenWidth, screenHeight);
     }
 }
 

@@ -8,7 +8,7 @@ public:
 	Boid(float x, float y, float vx, float vy);
 	~Boid()=default;
 
-	void update();
+	void update(int screenWidth, int screenHeight);
 
 	void updateVel(float vx, float vy);
 
@@ -31,12 +31,8 @@ private:
 	float vx; float vy;
 	float nextVX; float nextVY;
 
-	float maxSpeed;
-	float minSpeed;
-
-	float avoidFactor;
-	float centeringFactor;
-	float matchingFactor;
+	float maxSpeed=5;
+	float minSpeed=10;
 
 };
 
