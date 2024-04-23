@@ -22,9 +22,9 @@ public:
 private:
     std::vector<Boid> boids;
     float shortRange=10;
-    float longRange=50;
+    float longRange=300;
 
-    float centeringFactor=0.0005;
+    float centeringFactor=0.05;
     float avoidFactor=0.05;
     float matchingFactor=0.05;
 

@@ -32,7 +32,7 @@ private:
 	float nextVX; float nextVY;
 
 	float maxSpeed=5;
-	float minSpeed=10;
+	float minSpeed=2;
 
 };
 

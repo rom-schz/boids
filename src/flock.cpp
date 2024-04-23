@@ -2,6 +2,8 @@
 #include "boid.hpp"
 #include "raylib.h"
 
+#include <iostream>
+
 
 Flock::Flock() {
     boids = std::vector<Boid>();
@@ -47,17 +49,17 @@ void Flock::updateVel() {
 
             vx_avg /= neighbors;
             vy_avg /= neighbors;
+
+            vx += (x_avg - boid.getX()) * centeringFactor;
+            vx += (vx_avg - boid.getVX()) * matchingFactor;
+            vx += close_dx * avoidFactor;
+
+            vy += (y_avg - boid.getY()) * centeringFactor;
+            vy += (vy_avg - boid.getVY()) * matchingFactor;
+            vy += close_dy * avoidFactor;
+
+            boid.updateVel(vx, vy);
         }
-
-        vx += (x_avg - boid.getX()) * centeringFactor;
-        vx += (vx_avg - boid.getVX()) * matchingFactor;
-        vx += close_dx * avoidFactor;
-
-        vy += (y_avg - boid.getY()) * centeringFactor;
-        vy += (vy_avg - boid.getVY()) * matchingFactor;
-        vy += close_dy * avoidFactor;
-
-        boid.updateVel(vx, vy);
     }
 }
 

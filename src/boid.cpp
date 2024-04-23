@@ -28,17 +28,17 @@ void Boid::update(int screenWidth, int screenHeight) {
 
 	// Update position
 	x += vx;
-	if (x > screenWidth / 2) {
-		x = -screenWidth / 2;
-	} else if (x < - screenWidth / 2) {
-		x = screenWidth / 2;
+	if (x > screenWidth) {
+		x = 0;
+	} else if (x < 0) {
+		x = screenWidth;
 	}
 
 	y += vy;
-	if (y > screenHeight / 2) {
-		y = -screenHeight / 2;
-	} else if (y < - screenHeight / 2) {
-		y = screenHeight / 2;
+	if (y > screenHeight) {
+		y = 0;
+	} else if (y < 0) {
+		y = screenHeight;
 	}
 }
 
@@ -58,12 +58,9 @@ void Boid::render(int screenWidth, int screenHeight) {
 	float ox = -dy;
 	float oy = dx;
 
-	float X = x + screenWidth/2;
-	float Y = y + screenHeight/2;
-
-	Vector2 A = (Vector2) {X + 5 * dx, Y + 5 * dy};
-	Vector2 B = (Vector2) {X - 3 * dx + 2 * ox, Y - 3 * dy + 2 * oy};
-	Vector2 C = (Vector2) {X - 3 * dx - 2 * ox, Y - 3 * dy - 2 * oy};
+	Vector2 A = (Vector2) {x + 5 * dx, y + 5 * dy};
+	Vector2 B = (Vector2) {x - 3 * dx + 2 * ox, y - 3 * dy + 2 * oy};
+	Vector2 C = (Vector2) {x - 3 * dx - 2 * ox, y - 3 * dy - 2 * oy};
 
 	DrawTriangle(B, A, C, RED);
 }
